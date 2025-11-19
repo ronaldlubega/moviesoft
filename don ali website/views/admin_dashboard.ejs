@@ -1,0 +1,92 @@
+<div class="dashboard">
+  <div class="dashboard-header">
+    <h1>Admin Dashboard</h1>
+    <p>Post new movies and manage existing ones.</p>
+  </div>
+
+  <section class="dashboard-form-section">
+    <h2>Add New Movie</h2>
+    <form method="POST" action="/admin/movies" class="form grid-form">
+      <label>
+        Title
+        <input type="text" name="title" required />
+      </label>
+      <label>
+        Description
+        <textarea name="description" rows="3" required></textarea>
+      </label>
+      <label>
+        Genres
+        <input type="text" name="genres" placeholder="Action, Comedy" />
+      </label>
+      <label>
+        Year
+        <input type="text" name="year" placeholder="2025" />
+      </label>
+      <label>
+        Thumbnail URL
+        <input
+          type="url"
+          name="thumbnail"
+          placeholder="https://example.com/poster.jpg"
+        />
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" name="featured" /> Set as featured on homepage
+      </label>
+      <button type="submit" class="btn btn-primary">Add Movie</button>
+    </form>
+  </section>
+
+  <section class="dashboard-list-section">
+    <h2>Existing Movies</h2>
+    <% if (!movies.length) { %>
+    <p>No movies yet. Add your first movie above.</p>
+    <% } else { %>
+    <table class="movie-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Genres</th>
+          <th>Year</th>
+          <th>Featured</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% movies.forEach(function(movie) { %>
+        <tr>
+          <td><%= movie.title %></td>
+          <td><%= movie.genres || '-' %></td>
+          <td><%= movie.year || '-' %></td>
+          <td><%= movie.featured ? 'Yes' : 'No' %></td>
+          <td class="row-actions">
+            <form
+              method="POST"
+              action="/admin/movies/<%= movie.id %>/feature"
+              style="display:inline"
+            >
+              <button class="btn btn-small btn-secondary" type="submit">
+                Feature
+              </button>
+            </form>
+            <form
+              method="POST"
+              action="/admin/movies/<%= movie.id %>/delete"
+              style="display:inline"
+              onsubmit="return confirm('Delete this movie?');"
+            >
+              <button class="btn btn-small btn-outline" type="submit">
+                Delete
+              </button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } %>
+  </section>
+</div>
+
+

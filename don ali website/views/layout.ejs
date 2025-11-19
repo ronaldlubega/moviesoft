@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UGAFLIX Style Movies</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="nav-bar">
+      <div class="nav-left">
+        <span class="logo">UGAFLIX</span>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/">Movies</a>
+          <a href="/">TV Shows</a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <% if (isAdmin) { %>
+        <form action="/admin/logout" method="POST">
+          <button class="btn btn-outline">Logout</button>
+        </form>
+        <a href="/admin/dashboard" class="btn btn-primary">Admin</a>
+        <% } else { %>
+        <a href="/admin/login" class="btn btn-outline">Admin Login</a>
+        <% } %>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <%- body %>
+    </main>
+
+    <footer class="footer">
+      <div>Download UGAFLIX App and enjoy unlimited entertainment.</div>
+      <div class="footer-actions">
+        <button class="btn btn-secondary">Get it on Google Play</button>
+      </div>
+      <div class="footer-bottom">
+        <span>Connect with us</span>
+        <div class="social-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+

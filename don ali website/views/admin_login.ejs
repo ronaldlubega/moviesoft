@@ -1,0 +1,21 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h1>Admin Login</h1>
+    <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+    <% } %>
+    <form method="POST" action="/admin/login" class="form">
+      <label>
+        Username
+        <input type="text" name="username" required />
+      </label>
+      <label>
+        Password
+        <input type="password" name="password" required />
+      </label>
+      <button type="submit" class="btn btn-primary full-width">Login</button>
+    </form>
+  </div>
+</div>
+
+

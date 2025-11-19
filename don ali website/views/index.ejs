@@ -1,0 +1,56 @@
+<div class="hero-section">
+  <% if (featured) { %>
+  <div class="hero-left">
+    <div class="hero-video">
+      <div class="play-circle">
+        <span>▶</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <h1 class="hero-title"><%= featured.title %></h1>
+    <div class="hero-meta">
+      <% if (featured.genres) { %>
+      <span><%= featured.genres %></span>
+      <% } %>
+      <% if (featured.year) { %>
+      <span><%= featured.year %></span>
+      <% } %>
+    </div>
+    <p class="hero-description"><%= featured.description %></p>
+    <div class="hero-actions">
+      <button class="btn btn-primary">Watch Trailer</button>
+      <button class="btn btn-secondary">Add to Watchlist</button>
+    </div>
+  </div>
+  <% } else { %>
+  <div class="hero-empty">
+    <p>No movies added yet. Admin can add movies from the dashboard.</p>
+  </div>
+  <% } %>
+</div>
+
+<section class="carousel-section">
+  <h2 class="section-title">You May Also Like</h2>
+  <div class="movie-carousel">
+    <% movies.forEach(function(movie) { %>
+    <div class="movie-card">
+      <div class="movie-thumb">
+        <% if (movie.thumbnail) { %>
+        <img src="<%= movie.thumbnail %>" alt="<%= movie.title %>" />
+        <% } else { %>
+        <div class="movie-thumb-placeholder"><%= movie.title.charAt(0) %></div>
+        <% } %>
+      </div>
+      <div class="movie-info">
+        <h3><%= movie.title %></h3>
+        <% if (movie.genres) { %>
+        <p class="genres"><%= movie.genres %></p>
+        <% } %>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</section>
+
+

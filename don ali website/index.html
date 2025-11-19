@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Soft</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="nav-bar">
+      <div class="nav-left">
+        <div class="logo">MOVIE SOFT</div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html">Movies</a>
+          <a href="index.html">TV Shows</a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <a href="admin.html" class="btn btn-outline">Admin</a>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <section class="search-container">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Start typing to search movies..."
+        />
+      </section>
+
+      <section class="hero-section" id="heroSection">
+        <!-- Hero movie will be injected here by JavaScript -->
+      </section>
+
+      <section class="carousel-section">
+        <div class="latest-header">
+          <h3>You May Also Like</h3>
+          <a href="#">View All</a>
+        </div>
+        <div class="latest-movies" id="moviesGrid">
+          <!-- Movie cards will be injected here by JavaScript -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-bottom">
+        <span>Movie Soft &copy; <span id="footerYear"></span></span>
+        <div class="social-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
